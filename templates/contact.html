@@ -24,8 +24,9 @@
         <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
         <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
         {% if is_sent: %}
-        <h1>Thank you {{name}} for your contact. We will contact you at {{email}}</h1>
-        {%endif%}
+        <h1>Thank you {{name}} for your contact.
+          We will contact you at {{email}}</h1>
+        {%else:%}
 
         <form name="sentMessage" id="contactForm" novalidate action="{{url_for('contact')}}" method="POST">
           <div class="control-group">
@@ -60,6 +61,7 @@
           <div id="success"></div>
           <button type="submit" class="btn btn-primary" id="sendMessageButton">Send</button>
         </form>
+        {%endif%}
       </div>
     </div>
   </div>
