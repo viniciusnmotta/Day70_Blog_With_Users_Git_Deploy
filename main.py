@@ -161,11 +161,11 @@ def about():
     return render_template("about.html", current_user=current_user)
 
 
-@app.route("/contact", methods=['GET','POST'])
+@app.route("/contact", methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
-        name = request.name.data
-        email = request.email.data
+        name = request.form['name']
+        email = request.form['email']
         return render_template("contact.html", name=name, email=email, is_sent=True)
     return render_template("contact.html", current_user=current_user)
 
