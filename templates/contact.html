@@ -1,5 +1,4 @@
 {% include "header.html" %}
-{% import os %}
 
   <!-- Page Header -->
   <header class="masthead" style="background-image: url('{{ url_for('static', filename='img/contact-bg.jpg')}}')">
@@ -30,7 +29,6 @@
           <br><br>
           We will contact you at {{email}}
           <br>
-          {{os.environ['MYPASS']}}
         </h3>
         {%else:%}
 
