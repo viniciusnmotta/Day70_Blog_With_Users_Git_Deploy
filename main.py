@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, flash, abort
+from flask import Flask, render_template, redirect, url_for, flash, abort, request
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor
 from datetime import date
@@ -161,8 +161,12 @@ def about():
     return render_template("about.html", current_user=current_user)
 
 
-@app.route("/contact")
+@app.route("/contact", methods=['GET','POST'])
 def contact():
+    if request.method == 'POST':
+        name = request.name.data
+        email = request.email.data
+        return redirect("contact.html", name=name, email=email, is_sent=True)
     return render_template("contact.html", current_user=current_user)
 
 
