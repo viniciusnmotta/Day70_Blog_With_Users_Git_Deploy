@@ -166,7 +166,7 @@ def contact():
     if request.method == 'POST':
         name = request.name.data
         email = request.email.data
-        return redirect("contact.html", name=name, email=email, is_sent=True)
+        return render_template("contact.html", name=name, email=email, is_sent=True)
     return render_template("contact.html", current_user=current_user)
 
 
